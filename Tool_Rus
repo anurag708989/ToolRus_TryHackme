@@ -1,0 +1,117 @@
+#toolrus
+Practise using tools such as dirbuster, hydra, nmap, nikto and metasploit 
+
+
+Nmap Scan.............results
+Scanning 10.10.247.193 [1000 ports]
+Discovered open port 22/tcp on 10.10.247.193
+Discovered open port 80/tcp on 10.10.247.193
+Discovered open port 1234/tcp on 10.10.247.193
+Discovered open port 8009/tcp on 10.10.247.193
+Increasing send delay for 10.10.247.193 from 0 to 5 due to 262 out of 873 dropped probes since last increase.
+Completed SYN Stealth Scan at 17:39, 9.35s elapsed (1000 total ports)
+Initiating Service scan at 17:39
+Scanning 4 services on 10.10.247.193
+Completed Service scan at 17:39, 7.93s elapsed (4 services on 1 host)
+Initiating OS detection (try #1) against 10.10.247.193
+Retrying OS detection (try #2) against 10.10.247.193
+Retrying OS detection (try #3) against 10.10.247.193
+Retrying OS detection (try #4) against 10.10.247.193
+Retrying OS detection (try #5) against 10.10.247.193
+Initiating Traceroute at 17:39
+Completed Traceroute at 17:39, 0.19s elapsed
+Initiating Parallel DNS resolution of 2 hosts. at 17:39
+Completed Parallel DNS resolution of 2 hosts. at 17:39, 0.16s elapsed
+NSE: Script scanning 10.10.247.193.
+Initiating NSE at 17:39
+Completed NSE at 17:39, 5.69s elapsed
+Initiating NSE at 17:39
+Completed NSE at 17:39, 0.76s elapsed
+Initiating NSE at 17:39
+Completed NSE at 17:39, 0.00s elapsed
+Nmap scan report for 10.10.247.193
+Host is up (0.17s latency).
+Not shown: 996 closed ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 8d:14:8a:48:e2:b7:b5:b2:0d:12:75:dd:a0:2c:47:ca (RSA)
+|   256 95:ae:15:ad:e1:98:d3:88:aa:c2:d6:46:9d:23:bb:41 (ECDSA)
+|_  256 33:52:6f:a9:01:48:f9:40:4e:5a:54:16:34:0a:ec:57 (ED25519)
+80/tcp   open  http    Apache httpd 2.4.18 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+1234/tcp open  http    Apache Tomcat/Coyote JSP engine 1.1
+|_http-favicon: Apache Tomcat
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache-Coyote/1.1
+|_http-title: Apache Tomcat/7.0.88
+8009/tcp open  ajp13   Apache Jserv (Protocol v1.3)
+|_ajp-methods: Failed to get a valid response for the OPTION request
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=10/3%OT=22%CT=1%CU=34358%PV=Y%DS=2%DC=T%G=Y%TM=5F78EF9
+OS:5%P=x86_64-pc-linux-gnu)SEQ(SP=103%GCD=1%ISR=10B%TI=Z%CI=I%II=I%TS=8)OPS
+OS:(O1=M508ST11NW7%O2=M508ST11NW7%O3=M508NNT11NW7%O4=M508ST11NW7%O5=M508ST1
+OS:1NW7%O6=M508ST11)WIN(W1=68DF%W2=68DF%W3=68DF%W4=68DF%W5=68DF%W6=68DF)ECN
+OS:(R=Y%DF=Y%T=40%W=6903%O=M508NNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=A
+OS:S%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R
+OS:=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F
+OS:=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%
+OS:T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD
+OS:=S)
+
+Uptime guess: 200.443 days (since Tue Mar 17 07:01:18 2020)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=258 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 110/tcp)
+HOP RTT       ADDRESS
+1   181.35 ms 10.9.0.1
+2   182.73 ms 10.10.247.193
+
+
+Gobuster Results:
+/guidelines
+
+
+http://<ip>/guidelines
+Hey bob, did you update that TomCat server? 
+
+http://<ip>/protected
+/protected
+login type page popups
+required user credentials
+
+
+Nikto Scan
+- Nikto v2.1.6
+---------------------------------------------------------------------------
++ Target IP:          10.10.247.193
++ Target Hostname:    10.10.247.193
++ Target Port:        80
++ Start Time:         2020-10-03 17:45:52 (GMT-4)
+---------------------------------------------------------------------------
++ Server: Apache/2.4.18 (Ubuntu)
++ The anti-clickjacking X-Frame-Options header is not present.
++ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ Server may leak inodes via ETags, header found with file /, inode: a8, size: 583d315d43a92, mtime: gzip
++ Apache/2.4.18 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
++ Allowed HTTP Methods: GET, HEAD, POST, OPTIONS 
+
+Hydra
+
+command used: hydra -l bob -P rockyou.txt -f http-get <ip> -t 4 /protected/
+
+now according to the given task scanning /manager/html with nikto
+nikto -h http://10.10.131.147:1234/manager/html -id bob:<password>
+
+
+
